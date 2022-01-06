@@ -16,6 +16,8 @@ void addFront(Node *root, int data){
     root->next = node;
 }
 
+// 연결리스트 삭제
+
 void removeFront(Node *root){
     Node *front = root->next;
     root->next = front->next;
