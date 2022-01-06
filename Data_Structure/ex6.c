@@ -115,7 +115,7 @@ int main(void){
     strcpy(b, transition(&stack, input, size));
     printf("후위 표기법: %s\n", b);
     size = 1;
-    for (int i = 0; i < strlen(b) - 1; i++){
+    for (int i = 0; i < strlen(b) - 1; i++){ // 마지막엔 항상 공백이 들어가므로 1을 빼기
         if(b[i] == ' ') size++;
     }
     char *ptr2 = strtok(b, ' ');
