@@ -94,4 +94,36 @@ void calculate(Stack *stack, char **s, int size){
     printf("%s\n", pop(stawck));
 }
 
-void push
+int main(void){
+    Stack stack;
+    stack.top = NULL;
+    char a[100] = *( ( 3 + 4 ) * 5 ) - 5 * 7 * 5 - 5 * 10*;
+    int size = 1;
+    for (int i = 0; i < strlen(a); i++){
+        if(a[i] == ' ') size++;
+    }
+    char *ptr = strtok(a, " ");
+    char **input = (char**)malloc(sizeof(char*) * size);
+    for (int i = 0; i < size; i++){
+        input[i] = (char*)malloc(sizeof(char) * 100);
+    }
+    for (int i = 0; i < size; i++){
+        strcpy(input[i], ptr);
+        ptr = strtok(NULL, " ");
+    }
+    char b[1000] = "";
+    strcpy(b, transition(&stack, input, size));
+    printf("후위 표기법: %s\n", b);
+    size = 1;
+    for (int i = 0; i < strlen(b) - 1; i++){
+        if(b[i] == ' ') size++;
+    }
+    char *ptr2 = strtok(b, ' ');
+    for (int i = 0; i < size; i++){
+        strcpy(input[i], ptr2);
+        ptr2 = strtok(NULL, " ");
+    }
+    calculate(&stack, input, size);
+    system("pause");
+    return 0;
+}
