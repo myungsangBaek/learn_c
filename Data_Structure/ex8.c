@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define size 10000
+#include <sidlib.h>
 #define INF 9999999
 
 typedef struct {
