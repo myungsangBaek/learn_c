@@ -49,7 +49,39 @@ int main(Void){
     root = insertNode(root, 17);
     root = insertNode(root, 48);
     root = insertNode(root, 5);
-    root = insertNode(root, );
-    root = insertNode(root, 30);
-    root = insertNode(root, 30);
+    root = insertNode(root, 23);
+    root = insertNode(root, 37);
+    root = insertNode(root, 50);
+    preorder(root);
+    system("pause");
+}
+
+Node* findMinNode(Node* root){
+    Node* node = root;
+    while (node->leftChild != NULL){
+        node = node->leftChild;
+    }
+    return node;
+}
+
+//이진 트리 삭제 함수
+
+Node* deleteNode(Node* root, int data){
+    Node* node = NULL;
+    if (root == NULL) return NULL;
+    if (root->data > data) root->rightChild = deleteNode(root->leftChild, data);
+    else if (root->data < data) root->rightChild = deleteNode(root->rightChild, data);
+    else {
+        if (root->leftChild != NULL && root->rightChild != NULL){
+            node = findMinNode(root->rightChild);
+            root->data = node->data;
+            root->rightChild = deleteNode(root->rightChild, node->data);
+        }
+        else {
+            node = (root->leftChild != NULL)? root->leftChild : root->rightChild;
+            free(root);
+            return node;
+        }
+    }
+    return root;
 }
