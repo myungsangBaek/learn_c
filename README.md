@@ -11,5 +11,3 @@
 **따로 예제를 실행하기 위해서는 모듈을 설치해주어야 합니다.**
 
 Notion : https://periwinkle-spade-c8b.notion.site/5eb9395de0774fcf88ee4b747d12da75?v=74f8b8026bd04b749f7a672557850978
-
-Blog :
